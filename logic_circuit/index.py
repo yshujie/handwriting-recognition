@@ -65,3 +65,26 @@ def OR(x1, x2):
         return True
     else:
         return False
+
+def NAND(x1, x2):
+    """
+    brief: 与非门
+    desc: 使用 numpy 实现感知机的与非门
+          与非门是与门的反向
+    x: 输入信号
+    w: 信号权重，代表每个信号的重要程度
+    b: 偏置，代表神经元被激活的容易程度
+
+    数学公式：
+    y = 0 (w1*x1 + w2*x2 - b <= 0)
+    y = 1 (w1*x1 + w2*x2 - b > 0)
+    """
+    x = np.array([x1, x2])
+    w = np.array([0.5, 0.5])
+    b = -0.4
+
+    tmp = np.sum(x*w) - b
+    if tmp > 0:
+        return True
+    else:
+        return False
