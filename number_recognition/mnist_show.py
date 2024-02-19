@@ -16,7 +16,7 @@ label = t_train[0]
 print(label)  # 5
 
 print(img.shape)
-img = img.request(28, 28)
+img = img.reshape(28, 28)
 print(img.shape)
 
 img_show(img)
