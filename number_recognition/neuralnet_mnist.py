@@ -1,5 +1,5 @@
-from utils.mnist import load_mnist
 import numpy as np
+from utils.mnist import load_mnist
 from utils.activation_function import sigmoid, softmax
 import pickle
 
