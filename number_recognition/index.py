@@ -1,3 +1,5 @@
+import numpy as np
+
 def init_network():
     """
         init_network() -> dict

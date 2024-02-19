@@ -1,3 +1,4 @@
+import numpy as np
 from number_recognition.index import init_network, forward
 
 def main():
