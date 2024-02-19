@@ -1,5 +1,5 @@
 import numpy as np
-from number_recognition.util.activation_function import sigmoid, indentity_function
+from utils.activation_function import sigmoid, indentity_function
 
 def init_network():
     """
