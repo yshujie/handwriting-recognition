@@ -60,10 +60,10 @@ def forward(network, x):
     a1 = np.dot(x, W1) + b1 
     z1 = sigmoid(a1)
 
-    a2 = np.dot(z1, w2) + b2 
+    a2 = np.dot(z1, W2) + b2 
     z2 = sigmoid(a2)
 
-    a3 = np.dot(z2, w3) + b3
+    a3 = np.dot(z2, W3) + b3
     y = indentity_function(a3)
 
     return y
