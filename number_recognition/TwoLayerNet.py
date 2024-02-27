@@ -2,11 +2,21 @@ import sys, os
 sys.path.append(os.pardir) 
 import numpy as np
 from utils.activation_function import sigmoid, softmax
-
+from utils.loss_function import cross_entropy_error
 
 class TwoLayerNet:
 
     def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
+        """ 
+        初始化函数
+
+        Args:
+            input_size: 输入层的神经元数
+            hidden_size: 隐藏层的神经元数
+            output_size: 输出层的神经元数
+            weight_init_std: 指定权重的标准差
+        """
+
         # 初始化权重
         self.params = {}
 
