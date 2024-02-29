@@ -14,13 +14,15 @@ train_loss_list = []
 train_acc_list = []
 test_ass_list = []
 
-# 平均每个 epoch 的重复次数
-iter_per_epoch = max(train_size / batch_size, 1)
 
 # 超参数
 iters_num = 10000
+train_size = x_train.shape(0)
 batch_size = 100
 learning_rate = 0.1 
+
+# 平均每个 epoch 的重复次数
+iter_per_epoch = max(train_size / batch_size, 1)
 
 network = TwoLayerNet(
     input_size = 784,
