@@ -17,7 +17,7 @@ test_ass_list = []
 
 # 超参数
 iters_num = 10000
-train_size = x_train.shape(0)
+train_size = x_train.shape[0]
 batch_size = 100
 learning_rate = 0.1 
 
