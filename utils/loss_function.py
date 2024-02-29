@@ -14,7 +14,7 @@ def mean_squared_error(y, t):
     return 0.5 * np.sum((y-t)**2)
 
 
-def cross_ertropy_error(y, t):
+def cross_entropy_error(y, t):
     """
         交叉熵误差 (mini-batch 版本)
 
