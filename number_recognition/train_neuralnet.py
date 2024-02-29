@@ -24,7 +24,7 @@ learning_rate = 0.1
 # 平均每个 epoch 的重复次数
 iter_per_epoch = max(train_size / batch_size, 1)
 
-network = TwoLayerNet(
+network = TwoLayerNet.TwoLayerNet(
     input_size = 784,
     hidden_size = 50,
     output_size = 10
