@@ -5,7 +5,7 @@ from utils.mnist import load_mnist
 from number_recognition import TwoLayerNet
 
 # 读入数据
-(x_train, t_train), (x_test, t_test) = load_minist(
+(x_train, t_train), (x_test, t_test) = load_mnist(
     normalize=True, 
     one_hot_label=True
 )
