@@ -1,4 +1,7 @@
 class MulLayer:
+    """ 
+    乘法层    
+    """
     def __init__(self):
         self.x = None
         self.y = None
@@ -48,6 +51,9 @@ class MulLayer:
 
 
 class AddLayer:
+    """
+    加法层
+    """
     def __init__(self):
         pass
 
