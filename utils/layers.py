@@ -2,6 +2,17 @@ from utils.activation_function import softmax
 from utils.loss_function import cross_entropy_error
 
 class ReLU:
+    """
+    ReLU 层的实现
+
+    ReLU 函数的公式是：
+        y = x (x > 0)
+        y = 0 (x <= 0)
+
+    ReLU 函数的导数是：
+        dy/dx = 1 (x > 0)
+        dy/dx = 0 (x <= 0)
+    """
     def __init__(self):
         self.mask = None
 
@@ -54,6 +65,15 @@ class ReLU:
         return dx
 
 class Sigmoid:
+    """ 
+    Sigmoid 层的实现
+
+    Sigmoid 函数的公式是：
+        y = 1 / (1 + exp(-x))
+
+    Sigmoid 函数的导数是：
+        dy/dx = y * (1 - y)
+    """
     def __init__(self):
         self.out = None
 
@@ -93,6 +113,17 @@ class Sigmoid:
         return dx
 
 class Affine:
+    """
+    Affine 层的实现
+
+    Affine 函数的公式是：
+        y = x * W + b
+
+    Affine 函数的导数是：
+        dy/dx = W.T
+        dy/dW = x.T
+        dy/db = 1
+    """
     def __init__(self, W, b):
         self.W = W
         self.b = b
@@ -142,6 +173,15 @@ class Affine:
         return dx
 
 class SoftmaxWithLoss:
+    """
+    SoftmaxWithLoss 层的实现
+
+    SoftmaxWithLoss 函数的公式是：
+        loss = -1/N * ΣΣ(tk * log(yk))
+
+    SoftmaxWithLoss 函数的导数是：
+        dx = (yk - tk) / N
+    """
     def __init__(self):
         self.loss = None # 损失
         self.y = None    # softmax的输出
@@ -182,7 +222,7 @@ class SoftmaxWithLoss:
         """
         # 获取 batch_size, 也就是 y 的行数
         batch_size = self.t.shape[0]
-        # 如果监督数据是 one-hot-vector, 转换为正确解标签的索引
+        # 计算 dx，将传播值除以 batch_size，这样就可以得到一个数据的平均损失
         dx = (self.y - self.t) / batch_size
 
         return dx
