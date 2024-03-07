@@ -2,7 +2,7 @@ import sys, os
 sys.path.append(os.pardir)  # 为了导入父目录的文件而进行的设定
 import numpy as np 
 from utils.mnist import load_mnist
-import TwoLayerNet
+import TwoLayerNetV1
 
 # 读入数据
 (x_train, t_train), (x_test, t_test) = load_mnist(
@@ -24,7 +24,7 @@ learning_rate = 0.1
 # 平均每个 epoch 的重复次数
 iter_per_epoch = max(train_size / batch_size, 1)
 
-network = TwoLayerNet.TwoLayerNet(
+network = TwoLayerNet.TwoLayerNetV1(
     input_size = 784,
     hidden_size = 50,
     output_size = 10
