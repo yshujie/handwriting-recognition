@@ -1,3 +1,4 @@
+import numpy as np
 from utils.activation_function import softmax
 from utils.loss_function import cross_entropy_error
 
