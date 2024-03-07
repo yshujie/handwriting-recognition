@@ -49,3 +49,42 @@ class ReLU:
         dx = dout
 
         return dx
+
+class Sigmoid:
+    def __init__(self):
+        self.out = None
+
+    def forward(self, x):
+        """ 
+        Sigmoid的前向传播
+
+        Args:
+            x: 输入数据, 一个numpy数组
+
+        Returns:
+            out: 输出数据, 一个numpy数组
+
+        数学公式：
+            out = 1 / (1 + exp(-x))
+        """
+        out = 1 / (1 + np.exp(-x))
+        self.out = out
+
+        return out
+
+    def backward(self, dout):
+        """
+        Sigmoid的反向传播
+
+        Args:
+            dout: 输出数据的导数
+
+        Returns:
+            dx: 输入数据的导数
+
+        数学公式：
+            dx = dout * (1 - out) * out
+        """
+        dx = dout * (1.0 - self.out) * self.out
+
+        return dx
