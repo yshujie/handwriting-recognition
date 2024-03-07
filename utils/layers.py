@@ -1,3 +1,6 @@
+from utils.activation_function import softmax
+from utils.loss_function import cross_entropy_error
+
 class ReLU:
     def __init__(self):
         self.mask = None
@@ -135,5 +138,51 @@ class Affine:
         dx = np.dot(dout, self.W.T)
         self.dW = np.dot(self.x.T, dout)
         self.db = np.sum(dout, axis=0)
+
+        return dx
+
+class SoftmaxWithLoss:
+    def __init__(self):
+        self.loss = None # 损失
+        self.y = None    # softmax的输出
+        self.t = None    # 监督数据（one-hot vector）
+
+    def forward(self, x, t):
+        """
+        SoftmaxWithLoss的前向传播
+
+        Args:
+            x: 输入数据
+            t: 监督数据
+
+        Returns:
+            loss: 损失
+
+        数学公式：
+            loss = -1/N * ΣΣ(tk * log(yk))
+        """
+        self.t = t
+        self.y = softmax(x)
+        self.loss = cross_entropy_error(self.y, self.t)
+
+        return self.loss
+
+    def backward(self, dout=1):
+        """
+        SoftmaxWithLoss的反向传播
+
+        Args:
+            dout: 输出数据的导数
+
+        Returns:
+            dx: 输入数据的导数
+
+        数学公式：
+            dx = (yk - tk) / N
+        """
+        # 获取 batch_size, 也就是 y 的行数
+        batch_size = self.t.shape[0]
+        # 如果监督数据是 one-hot-vector, 转换为正确解标签的索引
+        dx = (self.y - self.t) / batch_size
 
         return dx
