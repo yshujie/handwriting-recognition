@@ -88,3 +88,52 @@ class Sigmoid:
         dx = dout * (1.0 - self.out) * self.out
 
         return dx
+
+class Affine:
+    def __init__(self, W, b):
+        self.W = W
+        self.b = b
+        self.x = None
+        self.dW = None
+        self.db = None
+
+    def forward(self, x):
+        """ 
+        Affine的前向传播
+
+        Args:
+            x: 输入数据, 一个numpy数组
+
+        Returns:
+            out: 输出数据, 一个numpy数组
+
+        数学公式：
+            out = x * W + b
+        """
+        self.x = x
+        out = np.dot(x, self.W) + self.b
+
+        return out
+
+    def backward(self, dout):
+        """ 
+        Affine的反向传播
+
+        Args:
+            dout: 输出数据的导数
+
+        Returns:
+            dx: 输入数据的导数
+            dW: 权重的导数
+            db: 偏置的导数
+
+        数学公式：
+            dx = dout * W.T
+            dW = x.T * dout
+            db = np.sum(dout, axis=0)
+        """
+        dx = np.dot(dout, self.W.T)
+        self.dW = np.dot(self.x.T, dout)
+        self.db = np.sum(dout, axis=0)
+
+        return dx
