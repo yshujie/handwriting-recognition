@@ -11,7 +11,7 @@ COPY . .
 RUN conda env create -f environment.yml
 
 # 激活 Conda 环境
-SHELL ["conda", "run", "-n", "deeplearning-env", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "handwriting-recognition", "/bin/bash", "-c"]
 
 # 运行你的代码或启动服务，例如：
-# CMD ["conda", "run", "-n", "deeplearning-env", "python", "your_script.py"]
+# CMD ["conda", "run", "-n", "handwriting-recognition", "python", "your_script.py"]
