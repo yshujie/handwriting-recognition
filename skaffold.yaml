@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta20
+kind: Config
+metadata:
+  name: handwriting-recognition
+build:
+  artifacts:
+    - image: handwriting-recognition # 使用与 docker-compose.yml 中相同的镜像名
+      context: .
+      docker:
+        dockerfile: Dockerfile
+deploy:
+  docker:
+    composeFile: docker-compose.yml

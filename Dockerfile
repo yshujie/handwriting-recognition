@@ -2,7 +2,7 @@
 FROM continuumio/miniconda3
 
 # 设置工作目录
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/handwriting-recognition
 
 # 将当前目录下的所有文件复制到工作目录内
 COPY . .
