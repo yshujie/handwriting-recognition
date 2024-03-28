@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta20
+apiVersion: skaffold/v4beta5  # 确保使用您的 Skaffold 版本对应的正确 apiVersion
 kind: Config
 metadata:
   name: handwriting-recognition
@@ -9,5 +9,5 @@ build:
       docker:
         dockerfile: Dockerfile
 deploy:
-  custom:
-    command: "docker-compose up --build"
+  docker:
+    images: [handwriting-recognition]
