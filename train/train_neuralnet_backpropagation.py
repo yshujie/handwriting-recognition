@@ -34,9 +34,9 @@ network = TwoLayerNetBackpropagation(
 for i in range(iters_num):
     print("the ", i, "th iteration is running ...")
     # 获取 mini-batch
-    batch_musk = np.random.choice(train_size, batch_size)
-    x_batch = x_train[batch_musk]
-    t_batch = t_train[batch_musk]
+    batch_mask = np.random.choice(train_size, batch_size)
+    x_batch = x_train[batch_mask]
+    t_batch = t_train[batch_mask]
     # print("---- x_batch.shape: ", x_batch.shape)
 
     # 计算梯度，反向传播方式计算梯度
