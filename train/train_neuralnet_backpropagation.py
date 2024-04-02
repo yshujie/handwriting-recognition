@@ -37,15 +37,10 @@ for i in range(iters_num):
     batch_mask = np.random.choice(train_size, batch_size)
     x_batch = x_train[batch_mask]
     t_batch = t_train[batch_mask]
-    print("---- x_batch.shape: ", x_batch.shape)
 
     # 计算梯度，反向传播方式计算梯度
     grad = network.gradient(x_batch, t_batch)
-    print("---- grad['W1'].shape: ", grad['W1'].shape)
-    print("---- grad['b1'].shape: ", grad['b1'].shape)
-    print("---- grad['W2'].shape: ", grad['W2'].shape)
-    print("---- grad['b2'].shape: ", grad['b2'].shape)
-
+    
     # 更新参数
     for key in ('W1', 'b1', 'W2', 'b2'):
         network.params[key] -= learning_rate * grad[key]
@@ -66,9 +61,9 @@ for i in range(iters_num):
 
     print("the ", i, "th iteration is done ...")
 
-print("result:")
-print("train_loss_list: ", train_loss_list)
-print("train_acc_list: ", train_acc_list)
-print("test_acc_list: ", test_acc_list)
+# print("result:")
+# print("train_loss_list: ", train_loss_list)
+# print("train_acc_list: ", train_acc_list)
+# print("test_acc_list: ", test_acc_list)
 
 print("Done!")
