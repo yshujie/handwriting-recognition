@@ -55,8 +55,8 @@ class TwoLayerNetBackpropagation:
             y: 预测结果
         """
 
-        for layers in self.layers.values():
-            x = layers.forward(x)
+        for layer in self.layers.values():
+            x = layer.forward(x)
         
         return x
 
@@ -142,9 +142,7 @@ class TwoLayerNetBackpropagation:
 
         # 设定
         grads = {}
-        grads['W1'] = self.layers['Affine1'].dW
-        grads['b1'] = self.layers['Affine1'].db
-        grads['W2'] = self.layers['Affine2'].dW
-        grads['b2'] = self.layers['Affine2'].db
+        grads['W1'], grads['b1'] = self.layers['Affine1'].dW, self.layers['Affine1'].db
+        grads['W2'], grads['b2'] = self.layers['Affine2'].dW, self.layers['Affine2'].db
 
         return grads    
