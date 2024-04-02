@@ -231,7 +231,7 @@ class SoftmaxWithLoss:
         batch_size = self.t.shape[0]
         # 计算 dx，将传播值除以 batch_size，这样就可以得到一个数据的平均损失
         if self.t.size == self.y.size:
-            dx = dx / self.t.shape[0]
+            dx = (self.y - self.t) / batch_size
         else:
             dx = self.y.copy()
             dx[np.arange(batch_size), self.t] -= 1
