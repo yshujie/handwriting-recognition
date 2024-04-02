@@ -30,7 +30,7 @@ def indentity_function(x):
     """
     return x
 
-def softmax(a):
+def softmax(x):
     """
         softmax(a) -> y
 
@@ -43,10 +43,5 @@ def softmax(a):
         数学公式：
             y = exp(a) / sum(exp(a))
     """
-
-    c = np.max(a)
-    exp_a = np.exp(a - c) # 溢出对策
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
+    x = x - np.max(x, axis=-1, keepdims=True) # 溢出对策
+    return np.exp(x) / np.sum(np.exp(x), axis=-1, keepdims=True)
