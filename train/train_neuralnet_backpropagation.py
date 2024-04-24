@@ -44,7 +44,6 @@ for i in range(iters_num):
     # 更新参数
     for key in ('W1', 'b1', 'W2', 'b2'):
         network.params[key] -= learning_rate * grad[key]
-        print("---- network.params[key].shape: ", network.params[key].shape)
 
     # 计算损失函数的值
     loss = network.loss(x_batch, t_batch)
